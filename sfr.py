@@ -1,0 +1,34 @@
+import xml.parsers.expat
+
+class streamFileReader:
+	streams = []
+	mimes = ['audio/x-mpegurl','audio/mpeg','audio/x-scpls','application/ogg']
+	urls = []
+
+	def __init__(self):
+		self.p = xml.parsers.expat.ParserCreate()
+		self.file = self.loadStream()
+		self.p.StartElementHandler = self.s_e_h
+		
+		if self.file:
+			self.p.Parse(self.file)
+			
+			for stream in self.streams:
+				self.urls.append(stream['url'])
+		else:
+			print 'couldn\'t load'
+
+	def s_e_h(self, name, attrs):
+		if name == 'stream':
+			self.streams.append(attrs)
+	
+	def get_mimes(self):
+		mimes = []
+		for s in self.streams:
+			mimes.append(s['mimetype'])
+		return mimes
+
+	def loadStream(self):
+		with open('./url_streams') as file:
+			print 'file loaded'
+			return file.read()
