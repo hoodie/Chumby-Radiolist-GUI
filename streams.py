@@ -38,24 +38,26 @@ class gladeGUI:
 		cell = gtk.CellRendererText()
 		combobox.pack_start(cell,True)
 		combobox.add_attribute(cell, 'text', 0)
-
+		
 		for value in values:
-			liststore.insert(0,[value])
+			liststore.append([value])
 		combobox.set_active(0)
 
 	def on_button_delete_clicked(self,window):
 		self.delete_dialog.run()
 
 	def on_button_save_clicked(self,window):
-		print gtk.Entry.get_text(self.entry1)
+		print gtk.Entry.get_text(self.entry_url)
 
 	def on_button_add_clicked(self,window):
-		print gtk.Entry.get_text(self.entry1)
+		print gtk.Entry.get_text(self.entry_url.get_text())
 
 	def on_combobox_urls_changed(self,window):
-		url = self.cbox_urls.get_active_text()
 		active = self.cbox_urls.get_active()
-		self.entry_url.set_text(url)
+		mime = self.model.streams[active]['mimetype']
+
+		self.entry_url.set_text(self.model.streams[active]['url'])
+		self.cbox_mimes.set_active(self.model.mimes.index(mime))
 
 	def on_window1_destroy(self,window):
 		exit()
@@ -71,7 +73,8 @@ class streamFileReader:
 		self.p.StartElementHandler = self.s_e_h
 		
 		if self.file:
-			self.parsed = self.p.Parse(self.file)
+			self.p.Parse(self.file)
+			
 			for stream in self.streams:
 				self.urls.append(stream['url'])
 		else:
