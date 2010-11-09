@@ -1,0 +1,16 @@
+<streams><stream url="http://www.sputnik.de/m3u/live.hi.m3u" id="8a7c5e5b-9651-2864-5399-d0ad7aa72874" mimetype="audio/x-mpegurl" name="Sputnik" />
+<stream url="http://www.sputnik.de/m3u/insomnia.hi.m3u" id="9a7c5e5b-9651-2864-5399-d0ad7aa72874" mimetype="audio/x-mpegurl" name="Insomnia" />
+<stream url="http://stream.laut.fm/neon.m3u" id="cd6695b2-08ac-0689-4352-7856c0c21493" mimetype="audio/x-mpegurl" name="NEON.FM" />
+<stream url="http://stream.laut.fm/eins.m3u" id="cd6695b2-08ac-0688-4352-7856c0c21493" mimetype="audio/x-mpegurl" name="LAUT.FM" />
+<stream url="http://www.dradio.de/streaming/dlf_hq_ogg.m3u" id="ce6695b2-08ac-0689-4352-7856c0c21493" mimetype="audio/x-mpegurl" name="D-Funk Kultur" />
+<stream url="http://www.dradio.de/streaming/dradiowissen_hq_ogg.m3u" id="cf6695b2-08ac-0689-4352-7856c0c21493" mimetype="audio/x-mpegurl" name="D-Funk Wissen" />
+<stream url="http://somafm.com/startstream=groovesalad.pls" id="1d92ec90-881b-314a-28fd-4faf76d06531" mimetype="audio/x-scpls" name="soma groovesalad" />
+<stream url="http://somafm.com/startstream=secretagent.pls" id="2d92ec90-881b-314a-28fd-4faf76d06531" mimetype="audio/x-scpls" name="soma secret agent" />
+<stream url="http://somafm.com/startstream=lush.pls" id="3d92ec90-881b-314a-28fd-4faf76d06531" mimetype="audio/x-scpls" name="soma lush" />
+<stream url="http://somafm.com/startstream=indiepop.pls" id="4d92ec90-881b-314a-28fd-4faf76d06531" mimetype="audio/x-scpls" name="soma indie pop" />
+<stream url="http://somafm.com/startstream=covers.pls" id="5d92ec90-881b-314a-28fd-4faf76d06531" mimetype="audio/x-scpls" name="soma covers" />
+<stream url="http://somafm.com/startstream=beatblender.pls" id="6d92ec90-881b-314a-28fd-4faf76d06531" mimetype="audio/x-scpls" name="soma beat blender" />
+<stream url="http://avw.mdr.de/lifestreams/mdr_figaro_live_128.pls" id="c5639bc2-2b92-ae89-f74a-b68256d631dc" mimetype="audio/x-scpls" name="Figaro" />
+<stream url="http://avw.mdr.de/lifestreams/mdr_info_live_128.pls" id="d5639bc2-2b92-ae89-f74a-b68256d631dc" mimetype="audio/x-scpls" name="Figaro" />
+<stream url="http://streaming.fueralle.org:8000/coloradio.ogg.m3u" id="aa7c5e5b-9651-2864-5399-d0ad7aa72874" mimetype="audio/x-mpegurl" name="coloRadio" />
+</streams>

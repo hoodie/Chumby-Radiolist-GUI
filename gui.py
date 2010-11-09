@@ -23,7 +23,7 @@ class gladeGUI:
 		self.populate_cbox(self.model.urls,'combobox_urls')
 
 
-	def populate_cbox(self,values,objectname):
+	def populate_cbox(self,values,objectname,active=0):
 		liststore = gtk.ListStore(str)
 		combobox = self.builder.get_object(objectname)
 		combobox.set_model(liststore)
@@ -33,7 +33,7 @@ class gladeGUI:
 		
 		for value in values:
 			liststore.append([value])
-		combobox.set_active(0)
+		combobox.set_active(active)
 
 	def on_button_delete_clicked(self,window):
 		self.delete_dialog.run()
@@ -42,7 +42,12 @@ class gladeGUI:
 		print gtk.Entry.get_text(self.entry_url)
 
 	def on_button_add_clicked(self,window):
-		print gtk.Entry.get_text(self.entry_url.get_text())
+		stream = {}
+		stream['url'] = self.entry_url.get_text()
+		stream['mimetype'] = self.cbox_mimes.get_active_text()
+		self.model.streams.append(stream)
+		self.cbox_urls.set_model()
+		self.populate_cbox(self.model.urls,'combobox_urls')
 
 	def on_combobox_urls_changed(self,window):
 		active = self.cbox_urls.get_active()
