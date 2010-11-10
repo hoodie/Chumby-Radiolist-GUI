@@ -1,6 +1,8 @@
 import gtk
 
 class gladeGUI:
+	active_url = active_mime = 0 # did this just because python lets me
+
 	def __init__(self,model):
 		self.model = model
 		
@@ -38,8 +40,20 @@ class gladeGUI:
 		for value in values:
 			liststore.append([value])
 
-	def on_button_delete_clicked(self,window):
-		self.delete_dialog.run()
+	def update_urls(self):
+		self.populate_cbox(self.model.urls,self.cbox_urls.get_model())
+
+	def on_button_delete_clicked(s,window):
+		s.delete_dialog.run()
+
+	def on_button_del_ok_clicked(s,dlg):
+		s.model.delete(s.active_url)
+		s.update_urls()
+		s.delete_dialog.hide()
+
+	def on_button_del_abort_clicked(s,dlg):
+		s.delete_dialog.hide()
+
 
 	def on_button_add_clicked(self,window):
 		stream = {}
@@ -48,15 +62,14 @@ class gladeGUI:
 		print stream
 		box = self.cbox_urls
 		self.model.append(stream)
-		self.populate_cbox(self.model.urls,self.cbox_urls.get_model())
+		self.update_urls()
 
 	def on_button_save_clicked(self,window):
 		print "no functionality yet"
 
 	def on_combobox_urls_changed(self,window):
-		active = self.cbox_urls.get_active()
+		self.active_url = active = self.cbox_urls.get_active()
 		mime = self.model.streams[active]['mimetype']
-
 		self.entry_url.set_text(self.model.streams[active]['url'])
 		self.cbox_mimes.set_active(self.model.mimes.index(mime))
 

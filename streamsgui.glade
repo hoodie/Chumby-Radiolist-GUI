@@ -241,11 +241,12 @@
             <property name="visible">True</property>
             <property name="layout_style">end</property>
             <child>
-              <object class="GtkButton" id="button1">
+              <object class="GtkButton" id="button_del_abort">
                 <property name="label" translatable="yes">nein, abbrechen</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <signal name="clicked" handler="on_button_del_abort_clicked"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -254,11 +255,12 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="button2">
+              <object class="GtkButton" id="button_del_ok">
                 <property name="label" translatable="yes">ja, löschen</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <signal name="clicked" handler="on_button_del_ok_clicked"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -276,8 +278,8 @@
       </object>
     </child>
     <action-widgets>
-      <action-widget response="0">button1</action-widget>
-      <action-widget response="0">button2</action-widget>
+      <action-widget response="0">button_del_abort</action-widget>
+      <action-widget response="0">button_del_ok</action-widget>
     </action-widgets>
   </object>
 </interface>

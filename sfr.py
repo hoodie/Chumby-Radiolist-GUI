@@ -26,6 +26,11 @@ class streamFileReader:
 		# TODO fill empty fields
 		self.streams.append(stream)
 		self.urls.append(stream['url'])
+
+	def delete(s, id):
+		s.streams.pop(id)
+		for stream in s.streams:
+			s.urls.append(stream['url'])
 	
 	def get_mimes(self):
 		mimes = []
