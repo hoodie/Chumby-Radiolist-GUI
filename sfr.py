@@ -22,6 +22,11 @@ class streamFileReader:
 		if name == 'stream':
 			self.streams.append(attrs)
 	
+	def append(self,stream):
+		# TODO fill empty fields
+		self.streams.append(stream)
+		self.urls.append(stream['url'])
+	
 	def get_mimes(self):
 		mimes = []
 		for s in self.streams:

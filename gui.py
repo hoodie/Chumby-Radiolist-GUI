@@ -19,22 +19,24 @@ class gladeGUI:
 		self.cbox_mimes = self.builder.get_object("combobox_mimes")
 		self.cbox_urls = self.builder.get_object("combobox_urls")
 		
-		self.populate_cbox(self.model.mimes,'combobox_mimes')
-		self.populate_cbox(self.model.mimes,'combobox_mimes')
-		self.populate_cbox(self.model.urls,'combobox_urls')
+		self.init_cbox(self.model.mimes,'combobox_mimes')
+		self.init_cbox(self.model.urls,'combobox_urls')
 
 
-	def populate_cbox(self,values,objectname,active=0):
+	def init_cbox(self,values,objectname,active=0):
 		combobox = self.builder.get_object(objectname)
 		liststore = gtk.ListStore(str)
 		combobox.set_model(liststore)
 		cell = gtk.CellRendererText()
 		combobox.pack_start(cell,True)
 		combobox.add_attribute(cell, 'text', 0)
-		
+		self.populate_cbox(values,liststore)
+		combobox.set_active(active)
+
+	def populate_cbox(self,values,liststore):
+		liststore.clear()
 		for value in values:
 			liststore.append([value])
-		combobox.set_active(active)
 
 	def on_button_delete_clicked(self,window):
 		self.delete_dialog.run()
@@ -43,8 +45,10 @@ class gladeGUI:
 		stream = {}
 		stream['url'] = self.entry_url.get_text()
 		stream['mimetype'] = self.cbox_mimes.get_active_text()
+		print stream
 		box = self.cbox_urls
-		self.model.streams.append(stream)
+		self.model.append(stream)
+		self.populate_cbox(self.model.urls,self.cbox_urls.get_model())
 
 	def on_button_save_clicked(self,window):
 		print "no functionality yet"
