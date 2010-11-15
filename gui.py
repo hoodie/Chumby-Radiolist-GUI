@@ -61,7 +61,7 @@ class gladeGUI:
 		self.active_url = active = self.cbox_urls.get_active()    
 		url = self.entry_url.get_text()
 		name = self.entry_name.get_text()
-		mime = self.model.get(active)['url']
+		mime = self.cbox_mimes.get_active_text()
 		self.model.add_stream(name, url,mime)
 
 	def on_button_save_clicked(self,window):
