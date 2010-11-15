@@ -27,6 +27,17 @@ class streamFileReader:
 		self.streams.append(stream)
 		self.urls.append(stream['url'])
 
+	def add_stream(s, name, url, mime):
+		stream = {}
+		stream['url'] = url
+		stream['mimetype'] = mime
+		stream['id'] = hash(url+mime)
+		stream['name'] = name
+		print stream
+
+	def get(s, index):
+		return s.streams[index]
+
 	def delete(s, id):
 		s.streams.pop(id)
 		for stream in s.streams:

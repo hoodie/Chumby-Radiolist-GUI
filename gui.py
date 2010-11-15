@@ -18,6 +18,7 @@ class gladeGUI:
 		self.delete_dialog = self.builder.get_object("messagedialog1")
 		self.window = self.builder.get_object("window1")
 		self.entry_url = self.builder.get_object("entry_url")
+		self.entry_name = self.builder.get_object("entry_name")
 		self.cbox_mimes = self.builder.get_object("combobox_mimes")
 		self.cbox_urls = self.builder.get_object("combobox_urls")
 		
@@ -54,23 +55,25 @@ class gladeGUI:
 	def on_button_del_abort_clicked(s,dlg):
 		s.delete_dialog.hide()
 
-
 	def on_button_add_clicked(self,window):
-		stream = {}
-		stream['url'] = self.entry_url.get_text()
-		stream['mimetype'] = self.cbox_mimes.get_active_text()
-		print stream
-		box = self.cbox_urls
-		self.model.append(stream)
-		self.update_urls()
+	#TODO abfragen, ob url nicht schon in liste ist, dann ueberschreiben
+	#TODO abfragen ob eingabe leer
+		self.active_url = active = self.cbox_urls.get_active()    
+		url = self.entry_url.get_text()
+		name = self.entry_name.get_text()
+		mime = self.model.get(active)['url']
+		self.model.add_stream(name, url,mime)
 
 	def on_button_save_clicked(self,window):
 		print "no functionality yet"
 
 	def on_combobox_urls_changed(self,window):
-		self.active_url = active = self.cbox_urls.get_active()
-		mime = self.model.streams[active]['mimetype']
-		self.entry_url.set_text(self.model.streams[active]['url'])
+		self.active_url = active = self.cbox_urls.get_active()    
+		name = self.model.get(active)['name']
+		mime = self.model.get(active)['mimetype']
+		url  = self.model.get(active)['url']
+		self.entry_name.set_text(name)
+		self.entry_url.set_text(url)
 		self.cbox_mimes.set_active(self.model.mimes.index(mime))
 
 	def on_window1_destroy(self,window):
