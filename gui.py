@@ -48,7 +48,7 @@ class gladeGUI:
 
 	def on_button_del_ok_clicked(s,dlg):
 		s.model.delete(s.active_url)
-		s.update_urls()
+		s.cbox_urls.remove_text(s.active_url)
 		s.delete_dialog.hide()
 
 	def on_button_del_abort_clicked(s,dlg):
