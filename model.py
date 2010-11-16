@@ -13,7 +13,7 @@ class streamFileReader:
 		#self.file = self.loadStream()
 
 	def loadStream(self):
-		with open(self.controller.loadFile) as file:
+		with open(self.controller.loadFile,'r') as file:
 			if file:
 				self.p.Parse(file.read())
 				for stream in self.streams:
@@ -61,7 +61,7 @@ class streamFileReader:
 		return mimes
 
 	def toXML(self):
-		xml = '<streams>'
+		xml = '<streams>\n'
 		for stream in self.streams:
 			xml += self.toTAG(stream)
 		xml += '</streams>'
@@ -71,5 +71,5 @@ class streamFileReader:
 		tag = '<stream '
 		for key,value in stream.iteritems():
 			tag += key + '="' + value +'" '
-		tag += ' />'
+		tag += ' />\n'
 		return tag 
