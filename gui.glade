@@ -33,7 +33,21 @@
                     <signal name="clicked" handler="on_button_delete_clicked"/>
                   </object>
                   <packing>
+                    <property name="expand">False</property>
                     <property name="position">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="button_new">
+                    <property name="label" translatable="yes">neu</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="relief">half</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="position">2</property>
                   </packing>
                 </child>
               </object>
@@ -84,7 +98,7 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="button_apply">
-                    <property name="label" translatable="yes">Hinzufügen</property>
+                    <property name="label" translatable="yes">übernehmen</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -98,6 +112,7 @@
                 </child>
               </object>
               <packing>
+                <property name="expand">False</property>
                 <property name="position">2</property>
               </packing>
             </child>
@@ -106,7 +121,7 @@
                 <property name="visible">True</property>
                 <child>
                   <object class="GtkButton" id="button_load">
-                    <property name="label" translatable="yes">laden</property>
+                    <property name="label" translatable="yes">öffnen</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -175,11 +190,13 @@
                     <property name="receives_default">True</property>
                   </object>
                   <packing>
+                    <property name="expand">False</property>
                     <property name="position">1</property>
                   </packing>
                 </child>
               </object>
               <packing>
+                <property name="fill">False</property>
                 <property name="position">0</property>
               </packing>
             </child>
@@ -214,6 +231,7 @@
                 </child>
               </object>
               <packing>
+                <property name="fill">False</property>
                 <property name="position">1</property>
               </packing>
             </child>
