@@ -65,7 +65,7 @@ class gladeGUI:
 		self.model.add_stream(name, url,mime)
 
 	def on_button_save_clicked(self,window):
-		print "no functionality yet"
+		self.model.toXML()
 
 	def on_combobox_urls_changed(self,window):
 		self.active_url = active = self.cbox_urls.get_active()    
