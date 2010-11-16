@@ -10,7 +10,6 @@ class gladeGUI:
 		self.builder = gtk.Builder()
 		self.builder.add_from_file(self.guifile)
 		self.init_ui()
-
 		self.builder.connect_signals(self)
 		self.window.show()
 	
@@ -66,6 +65,8 @@ class gladeGUI:
 
 	def on_button_save_clicked(self,window):
 		self.model.toXML()
+	def on_button_load_clicked(self,window):
+		print 'bin laden'
 
 	def on_combobox_urls_changed(self,window):
 		self.active_url = active = self.cbox_urls.get_active()    

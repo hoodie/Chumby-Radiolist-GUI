@@ -8,19 +8,18 @@ class streamFileReader:
 
 	def __init__(self):
 		self.p = xml.parsers.expat.ParserCreate()
-		self.file = self.loadStream()
-		self.p.StartElementHandler = self.s_e_h
-		
-		if self.file:
-			self.p.Parse(self.file)
-			
-			for stream in self.streams:
-				self.urls.append(stream['url'])
-				self.names.append(stream['name'])
-		else:
-			pass
+		self.p.StartElementHandler = self.elementHandler
+		#self.file = self.loadStream()
 
-	def s_e_h(self, name, attrs):
+	def loadStream(self, sfile = './url_streams'):
+		with open(sfile) as file:
+			if file:
+				self.p.Parse(file.read())
+				for stream in self.streams:
+					self.urls.append(stream['url'])
+					self.names.append(stream['name'])
+	
+	def elementHandler(self, name, attrs):
 		if name == 'stream':
 			self.streams.append(attrs)
 	
@@ -30,7 +29,7 @@ class streamFileReader:
 		self.urls.append(stream['url'])
 		self.names.append(stream['name'])
 
-	def add_stream(s, name, url, mime):
+	def addStream(s, name, url, mime):
 		# TODO need prettier hashs
 		stream = {}
 		stream['url'] = url
@@ -47,16 +46,12 @@ class streamFileReader:
 		for stream in s.streams:
 			s.urls.append(stream['url'])
 	
-	def get_mimes(self):
+	def getMimes(self):
 		mimes = []
 		for s in self.streams:
 			mimes.append(s['mimetype'])
 		return mimes
 
-	def loadStream(self):
-		with open('./url_streams') as file:
-			return file.read()
-	
 	def toXML(self):
 		xml = '<streams>'
 		for stream in self.streams:
