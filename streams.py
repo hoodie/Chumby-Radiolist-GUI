@@ -4,8 +4,11 @@ from gui import gladeGUI
 from sfr import streamFileReader 
 class controller:
 	def __init__(self):
-		sfr = streamFileReader()
-		gui = gladeGUI(sfr)
+		self.streamsfile = './url_streams'
+		self.chumbyhost = 'chumby.fritz.box'
+
+		sfr = streamFileReader(self)
+		gui = gladeGUI(sfr, self)
 		gtk.main()
 
 

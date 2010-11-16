@@ -6,13 +6,14 @@ class streamFileReader:
 	urls = []
 	names = []
 
-	def __init__(self):
+	def __init__(self, controller):
+		self.controller = controller
 		self.p = xml.parsers.expat.ParserCreate()
 		self.p.StartElementHandler = self.elementHandler
 		#self.file = self.loadStream()
 
-	def loadStream(self, sfile = './url_streams'):
-		with open(sfile) as file:
+	def loadStream(self):
+		with open(self.controller.streamsfile) as file:
 			if file:
 				self.p.Parse(file.read())
 				for stream in self.streams:

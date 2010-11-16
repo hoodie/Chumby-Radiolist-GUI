@@ -3,8 +3,9 @@ import gtk
 class gladeGUI:
 	active_url = active_mime = 0 # did this just because python lets me
 
-	def __init__(self,model):
+	def __init__(self,model, controller):
 		self.model = model
+		self.controller = controller
 		
 		self.guifile = "streamsgui.glade"
 		self.builder = gtk.Builder()
@@ -21,9 +22,6 @@ class gladeGUI:
 		self.cbox_mimes = self.builder.get_object("combobox_mimes")
 		self.cbox_urls = self.builder.get_object("combobox_urls")
 		
-		self.init_cbox(self.model.mimes,'combobox_mimes')
-		self.init_cbox(self.model.names,'combobox_urls')
-
 
 	def init_cbox(self,values,objectname,active=0):
 		combobox = self.builder.get_object(objectname)
@@ -65,8 +63,12 @@ class gladeGUI:
 
 	def on_button_save_clicked(self,window):
 		self.model.toXML()
+	
 	def on_button_load_clicked(self,window):
-		print 'bin laden'
+		self.model.loadStream()
+		self.init_cbox(self.model.mimes,'combobox_mimes')
+		self.init_cbox(self.model.names,'combobox_urls')
+
 
 	def on_combobox_urls_changed(self,window):
 		self.active_url = active = self.cbox_urls.get_active()    
