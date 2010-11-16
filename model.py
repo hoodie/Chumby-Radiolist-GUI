@@ -13,22 +13,29 @@ class streamFileReader:
 		#self.file = self.loadStream()
 
 	def loadStream(self):
-		with open(self.controller.streamsfile) as file:
+		with open(self.controller.loadFile) as file:
 			if file:
 				self.p.Parse(file.read())
 				for stream in self.streams:
 					self.urls.append(stream['url'])
 					self.names.append(stream['name'])
-	
+
+	def saveStreams(self,s):
+		with open(self.controller.saveFile,'w') as file:
+			file.write(s)
+
+
 	def elementHandler(self, name, attrs):
 		if name == 'stream':
 			self.streams.append(attrs)
 	
 	def append(self,stream):
 		# TODO fill empty fields
-		self.streams.append(stream)
-		self.urls.append(stream['url'])
-		self.names.append(stream['name'])
+		if "" not in stream:
+			self.streams.append(stream)
+			self.urls.append(stream['url'])
+			self.names.append(stream['name'])
+		else : print 'leere Eingabe'
 
 	def addStream(s, name, url, mime):
 		# TODO need prettier hashs
@@ -58,7 +65,7 @@ class streamFileReader:
 		for stream in self.streams:
 			xml += self.toTAG(stream)
 		xml += '</streams>'
-		print xml
+		return xml
 
 	def toTAG(self, stream):
 		tag = '<stream '

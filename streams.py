@@ -1,11 +1,15 @@
 #!/usr/bin/env python
 import gtk
-from gui import gladeGUI 
-from sfr import streamFileReader 
+from view import gladeGUI 
+from model import streamFileReader 
+
 class controller:
 	def __init__(self):
-		self.streamsfile = './url_streams'
-		self.chumbyhost = 'chumby.fritz.box'
+		self.loadFile = './old'
+		self.saveFile = './new'
+		self.chumbyHost = 'chumby.fritz.box'
+		self.editExisting = False
+		self.dataChanged = False
 
 		sfr = streamFileReader(self)
 		gui = gladeGUI(sfr, self)

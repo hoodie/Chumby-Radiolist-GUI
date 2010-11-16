@@ -83,12 +83,12 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkButton" id="button_add">
+                  <object class="GtkButton" id="button_apply">
                     <property name="label" translatable="yes">Hinzufügen</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
-                    <signal name="clicked" handler="on_button_add_clicked"/>
+                    <signal name="clicked" handler="on_button_apply_clicked"/>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -105,9 +105,6 @@
               <object class="GtkHButtonBox" id="hbuttonbox1">
                 <property name="visible">True</property>
                 <child>
-                  <placeholder/>
-                </child>
-                <child>
                   <object class="GtkButton" id="button_load">
                     <property name="label" translatable="yes">laden</property>
                     <property name="visible">True</property>
@@ -118,8 +115,11 @@
                   <packing>
                     <property name="expand">False</property>
                     <property name="fill">False</property>
-                    <property name="position">1</property>
+                    <property name="position">0</property>
                   </packing>
+                </child>
+                <child>
+                  <placeholder/>
                 </child>
                 <child>
                   <object class="GtkButton" id="button_save">
@@ -158,7 +158,7 @@
               <object class="GtkHBox" id="hbox3">
                 <property name="visible">True</property>
                 <child>
-                  <object class="GtkEntry" id="entry1">
+                  <object class="GtkEntry" id="entry_host">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="invisible_char">•</property>
@@ -168,8 +168,8 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkButton" id="button5">
-                    <property name="label" translatable="yes">button</property>
+                  <object class="GtkButton" id="button_check_host">
+                    <property name="label" translatable="yes">ping</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -188,7 +188,7 @@
                 <property name="visible">True</property>
                 <child>
                   <object class="GtkButton" id="button3">
-                    <property name="label" translatable="yes">button</property>
+                    <property name="label" translatable="yes">herunterladen</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -201,7 +201,7 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="button4">
-                    <property name="label" translatable="yes">button</property>
+                    <property name="label" translatable="yes">hochladen</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
