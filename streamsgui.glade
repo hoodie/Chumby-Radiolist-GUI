@@ -45,7 +45,7 @@
               <object class="GtkHBox" id="hbox1">
                 <property name="visible">True</property>
                 <child>
-                  <object class="GtkEntry" id="entry_url">
+                  <object class="GtkEntry" id="entry_name">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="invisible_char">•</property>
@@ -73,7 +73,7 @@
               <object class="GtkHBox" id="hbox4">
                 <property name="visible">True</property>
                 <child>
-                  <object class="GtkEntry" id="entry_name">
+                  <object class="GtkEntry" id="entry_url">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="invisible_char">•</property>

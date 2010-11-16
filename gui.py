@@ -23,7 +23,7 @@ class gladeGUI:
 		self.cbox_urls = self.builder.get_object("combobox_urls")
 		
 		self.init_cbox(self.model.mimes,'combobox_mimes')
-		self.init_cbox(self.model.urls,'combobox_urls')
+		self.init_cbox(self.model.names,'combobox_urls')
 
 
 	def init_cbox(self,values,objectname,active=0):

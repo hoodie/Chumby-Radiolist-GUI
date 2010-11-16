@@ -4,6 +4,7 @@ class streamFileReader:
 	streams = []
 	mimes = ['audio/x-mpegurl','audio/mpeg','audio/x-scpls','application/ogg']
 	urls = []
+	names = []
 
 	def __init__(self):
 		self.p = xml.parsers.expat.ParserCreate()
@@ -15,8 +16,9 @@ class streamFileReader:
 			
 			for stream in self.streams:
 				self.urls.append(stream['url'])
+				self.names.append(stream['name'])
 		else:
-			print 'couldn\'t load'
+			pass
 
 	def s_e_h(self, name, attrs):
 		if name == 'stream':
@@ -26,6 +28,7 @@ class streamFileReader:
 		# TODO fill empty fields
 		self.streams.append(stream)
 		self.urls.append(stream['url'])
+		self.names.append(stream['name'])
 
 	def add_stream(s, name, url, mime):
 		# TODO need prettier hashs
