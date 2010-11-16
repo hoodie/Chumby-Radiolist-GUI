@@ -53,3 +53,14 @@ class streamFileReader:
 		with open('./url_streams') as file:
 			print 'file loaded'
 			return file.read()
+	
+	def toXML(self):
+		for stream in self.streams:
+			print self.toTAG(stream)
+
+	def toTAG(self, stream):
+		tag = '<stream '
+		for key,value in stream.iteritems():
+			tag += key + '="' + value +'" '
+		tag += ' />'
+		return tag 
