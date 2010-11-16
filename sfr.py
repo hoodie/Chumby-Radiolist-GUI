@@ -28,6 +28,7 @@ class streamFileReader:
 		self.urls.append(stream['url'])
 
 	def add_stream(s, name, url, mime):
+		# TODO need prettier hashs
 		stream = {}
 		stream['url'] = url
 		stream['mimetype'] = mime
