@@ -1,4 +1,5 @@
 Planned features:
+* check if file exists
 * saving chumby-IP to directly pull url_streams from device
 * pinging chumby
 * move functionality to controller
