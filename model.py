@@ -42,7 +42,7 @@ class streamFileReader:
 		stream = {}
 		stream['url'] = url
 		stream['mimetype'] = mime
-		stream['id'] = hash(url+mime)
+		stream['id'] = repr(hash(url+mime))
 		stream['name'] = name
 		return stream
 
@@ -70,6 +70,6 @@ class streamFileReader:
 	def toTAG(self, stream):
 		tag = '<stream '
 		for key,value in stream.iteritems():
-			tag += key + '="' + repr(value) +'" '
+			tag += key + '="' + value +'" '
 		tag += ' />\n'
 		return tag 

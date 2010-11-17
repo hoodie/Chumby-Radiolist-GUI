@@ -25,7 +25,6 @@ class controller:
 			gui.cbox_urls.remove_text(index)
 			gui.cbox_urls.insert_text(index,text)
 			gui.cbox_urls.set_active(index)
-			print model.streams
 
 	
 if __name__ == '__main__':
