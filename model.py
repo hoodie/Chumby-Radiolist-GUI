@@ -12,7 +12,7 @@ class streamFileReader:
 		self.p.StartElementHandler = self.elementHandler
 		#self.file = self.loadStream()
 
-	def loadStream(self):
+	def loadStreams(self):
 		with open(self.controller.loadFile,'r') as file:
 			if file:
 				self.p.Parse(file.read())
@@ -37,14 +37,14 @@ class streamFileReader:
 			self.names.append(stream['name'])
 		else : print 'leere Eingabe'
 
-	def addStream(s, name, url, mime):
+	def newStream(s, name, url, mime):
 		# TODO need prettier hashs
 		stream = {}
 		stream['url'] = url
 		stream['mimetype'] = mime
 		stream['id'] = hash(url+mime)
 		stream['name'] = name
-		print stream
+		return stream
 
 	def get(s, index):
 		return s.streams[index]
@@ -70,6 +70,6 @@ class streamFileReader:
 	def toTAG(self, stream):
 		tag = '<stream '
 		for key,value in stream.iteritems():
-			tag += key + '="' + value +'" '
+			tag += key + '="' + repr(value) +'" '
 		tag += ' />\n'
 		return tag 

@@ -44,6 +44,7 @@
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="relief">half</property>
+                    <signal name="clicked" handler="on_button_new_clicked"/>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -259,21 +260,23 @@
       </object>
     </child>
   </object>
-  <object class="GtkMessageDialog" id="messagedialog1">
+  <object class="GtkMessageDialog" id="dialog_delete">
     <property name="border_width">5</property>
     <property name="type_hint">normal</property>
     <property name="skip_taskbar_hint">True</property>
     <child internal-child="vbox">
       <object class="GtkVBox" id="dialog-vbox2">
         <property name="visible">True</property>
-        <property name="spacing">2</property>
         <child>
           <object class="GtkLabel" id="label1">
             <property name="visible">True</property>
             <property name="label" translatable="yes">Möchten Sie diesen Sender wirklich löschen?</property>
           </object>
           <packing>
-            <property name="position">2</property>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="pack_type">end</property>
+            <property name="position">1</property>
           </packing>
         </child>
         <child internal-child="action_area">
@@ -282,7 +285,7 @@
             <property name="layout_style">end</property>
             <child>
               <object class="GtkButton" id="button_del_abort">
-                <property name="label" translatable="yes">nein, abbrechen</property>
+                <property name="label" translatable="yes">abbrechen</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -321,5 +324,39 @@
       <action-widget response="0">button_del_abort</action-widget>
       <action-widget response="0">button_del_ok</action-widget>
     </action-widgets>
+  </object>
+  <object class="GtkMessageDialog" id="dialog_warn">
+    <property name="border_width">5</property>
+    <property name="type_hint">normal</property>
+    <property name="skip_taskbar_hint">True</property>
+    <property name="text" translatable="yes">----</property>
+    <child internal-child="vbox">
+      <object class="GtkVBox" id="dialog-vbox3">
+        <property name="visible">True</property>
+        <property name="spacing">2</property>
+        <child>
+          <object class="GtkButton" id="button_warn">
+            <property name="label" translatable="yes">Ok</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+          </object>
+          <packing>
+            <property name="position">2</property>
+          </packing>
+        </child>
+        <child internal-child="action_area">
+          <object class="GtkHButtonBox" id="dialog-action_area3">
+            <property name="visible">True</property>
+            <property name="layout_style">end</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="pack_type">end</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+      </object>
+    </child>
   </object>
 </interface>
