@@ -23,8 +23,12 @@ class controller:
 			model.streams[index] = stream
 			gui.cbox_mimes.set_active(model.mimes.index(mime))
 			gui.cbox_urls.remove_text(index)
-			gui.cbox_urls.insert_text(index,text)
+			gui.cbox_urls.insert_text(index,name)
 			gui.cbox_urls.set_active(index)
+		else:
+			model.streams.append(stream)
+			gui.cbox_urls.append_text(name)
+			gui.cbox_urls.set_active(len(model.streams))
 
 	
 if __name__ == '__main__':

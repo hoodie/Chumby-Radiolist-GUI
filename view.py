@@ -1,12 +1,9 @@
 import gtk
 
 class gladeGUI:
-	active_url = active_mime = 0 # did this just because python lets me
-
 	def __init__(self,model, controller):
 		self.model = model
 		self.c = controller
-		
 		self.guifile = "gui.glade"
 		self.builder = gtk.Builder()
 		self.builder.add_from_file(self.guifile)

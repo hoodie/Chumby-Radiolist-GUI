@@ -71,5 +71,5 @@ class streamFileReader:
 		tag = '<stream '
 		for key,value in stream.iteritems():
 			tag += key + '="' + value +'" '
-		tag += ' />\n'
+		tag += '/>\n'
 		return tag 
